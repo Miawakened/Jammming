@@ -48,6 +48,12 @@ function App() {
     setPlaylistTracks((prevTracks) => [...prevTracks, track])
   }
 
+  const removeTrack = (track) => {
+    setPlaylistTracks((prevTracks) =>
+      prevTracks.filter((item) => item.id !== track.id)
+    )
+  }
+
   return (
     <>
       <h1>Jammming</h1>
@@ -59,6 +65,7 @@ function App() {
       <Playlist
         name={playlistName}
         tracks={playlistTracks}
+        onRemove={removeTrack}
       />
     </>
   )
