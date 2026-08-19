@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Tracklist from './Tracklist'
 
-function Playlist({ name, tracks, onRemove, onNameChange }) {
+function Playlist({ name, tracks, onRemove, onNameChange, onSave }) {
 
   const [isEditing, setIsEditing] = useState(false)
   const [newName, setNewName] = useState(name)
@@ -34,7 +34,7 @@ function Playlist({ name, tracks, onRemove, onNameChange }) {
 
       <Tracklist tracks={tracks} onRemove={onRemove} />
 
-      <button>Save To Spotify</button>
+      <button onClick={onSave}>Save To Spotify</button>
     </section>
   )
 }

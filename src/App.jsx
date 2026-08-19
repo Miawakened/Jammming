@@ -11,19 +11,22 @@ function App() {
       id: 1,
       name: 'Blinding Lights',
       artist: 'The Weeknd',
-      album: 'After Hours'
+      album: 'After Hours',
+      uri: 'spotify:track:blinding-lights'
     },
     {
       id: 2,
       name: 'Do I Wanna Know?',
       artist: 'Arctic Monkeys',
-      album: 'AM'
+      album: 'AM',
+      uri: 'spotify:track:do-i-wanna-know'
     },
     {
       id: 3,
       name: '505',
       artist: 'Arctic Monkeys',
-      album: 'Favourite Worst Nightmare'
+      album: 'Favourite Worst Nightmare',
+      uri: 'spotify:track:505'
     }
   ]
 
@@ -34,17 +37,19 @@ function App() {
   }
 
   const [playlistTracks, setPlaylistTracks] = useState([
-    { 
-      id: 4, 
-      name: 'Starboy', 
-      artist: 'The Weeknd', 
-      album: 'Starboy' 
+    {
+      id: 4,
+      name: 'Starboy',
+      artist: 'The Weeknd',
+      album: 'Starboy',
+      uri: 'spotify:track:starboy'
     },
-    { 
-      id: 5, 
-      name: 'R U Mine?', 
-      artist: 'Arctic Monkeys', 
-      album: 'AM' 
+    {
+      id: 5,
+      name: 'R U Mine?',
+      artist: 'Arctic Monkeys',
+      album: 'AM',
+      uri: 'spotify:track:r-u-mine'
     }
   ])
 
@@ -56,6 +61,14 @@ function App() {
     setPlaylistTracks((prevTracks) =>
       prevTracks.filter((item) => item.id !== track.id)
     )
+  }
+
+  const savePlaylist = () => {
+    const trackUris = playlistTracks.map(track => track.uri)
+  
+    console.log(trackUris)
+  
+    setPlaylistTracks([])
   }
 
   return (
@@ -71,6 +84,7 @@ function App() {
         tracks={playlistTracks}
         onRemove={removeTrack}
         onNameChange={updatePlaylistName}
+        onSave={savePlaylist}
       />
     </>
   )
