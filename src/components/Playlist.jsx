@@ -1,11 +1,15 @@
+import Tracklist from './Tracklist'
 
-function Playlist() {
+function Playlist({ name, tracks }) {
   return (
-    <div>
-      <h2>My Playlist</h2>
+    <section>
+      <h2>{name}</h2>
+
+      <Tracklist tracks={tracks} />
+
       <button>Save To Spotify</button>
-    </div>
-  );
+    </section>
+  )
 }
 
-export default Playlist;
+export default Playlist

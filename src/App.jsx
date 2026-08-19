@@ -24,6 +24,23 @@ function App() {
     }
   ]
 
+  const playlistName = 'My Awesome Playlist'
+
+  const playlistTracks = [
+    {
+      id: 4,
+      name: 'Starboy',
+      artist: 'The Weeknd',
+      album: 'Starboy'
+    },
+    {
+      id: 5,
+      name: 'R U Mine?',
+      artist: 'Arctic Monkeys',
+      album: 'AM'
+    }
+  ]
+
   return (
     <>
       <h1>Jammming</h1>
@@ -32,7 +49,10 @@ function App() {
 
       <SearchResults tracks={tracks} />
 
-      <Playlist />
+      <Playlist
+        name={playlistName}
+        tracks={playlistTracks}
+      />
     </>
   )
 }

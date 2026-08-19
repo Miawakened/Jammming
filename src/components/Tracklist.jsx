@@ -1,14 +1,18 @@
-import Track from './Track';
+import Track from './Track'
 
-function Tracklist() {
+function Tracklist({ tracks }) {
   return (
     <div>
-      <h3>Tracklist</h3>
-      <Track />
-      <Track />
-      <Track />
+      {tracks.map(track => (
+        <Track
+          key={track.id}
+          name={track.name}
+          artist={track.artist}
+          album={track.album}
+        />
+      ))}
     </div>
-  );
+  )
 }
 
-export default Tracklist;
+export default Tracklist
