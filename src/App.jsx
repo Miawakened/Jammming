@@ -27,7 +27,11 @@ function App() {
     }
   ]
 
-  const playlistName = 'My Awesome Playlist'
+  const [playlistName, setPlaylistName] = useState('My Awesome Playlist')
+
+  const updatePlaylistName = (name) => {
+    setPlaylistName(name)
+  }
 
   const [playlistTracks, setPlaylistTracks] = useState([
     { 
@@ -66,6 +70,7 @@ function App() {
         name={playlistName}
         tracks={playlistTracks}
         onRemove={removeTrack}
+        onNameChange={updatePlaylistName}
       />
     </>
   )
