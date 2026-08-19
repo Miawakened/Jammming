@@ -1,8 +1,11 @@
+
+import { useState } from 'react'
 import SearchBar from './components/SearchBar'
 import SearchResults from './components/SearchResults'
 import Playlist from './components/Playlist'
 
 function App() {
+
   const tracks = [
     {
       id: 1,
@@ -26,20 +29,24 @@ function App() {
 
   const playlistName = 'My Awesome Playlist'
 
-  const playlistTracks = [
-    {
-      id: 4,
-      name: 'Starboy',
-      artist: 'The Weeknd',
-      album: 'Starboy'
+  const [playlistTracks, setPlaylistTracks] = useState([
+    { 
+      id: 4, 
+      name: 'Starboy', 
+      artist: 'The Weeknd', 
+      album: 'Starboy' 
     },
-    {
-      id: 5,
-      name: 'R U Mine?',
-      artist: 'Arctic Monkeys',
-      album: 'AM'
+    { 
+      id: 5, 
+      name: 'R U Mine?', 
+      artist: 'Arctic Monkeys', 
+      album: 'AM' 
     }
-  ]
+  ])
+
+  const addTrack = (track) => {
+    setPlaylistTracks((prevTracks) => [...prevTracks, track])
+  }
 
   return (
     <>
@@ -47,7 +54,7 @@ function App() {
 
       <SearchBar />
 
-      <SearchResults tracks={tracks} />
+      <SearchResults tracks={tracks} onAdd={addTrack}/>
 
       <Playlist
         name={playlistName}
